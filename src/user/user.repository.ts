@@ -12,6 +12,14 @@ export class UserRepository extends Repository<User> {
     return this.findOneOrFail(id);
   }
 
+  findAllAddressWithRelations = async () => {
+    return await this.find({relations: ['address']});
+  }
+
+  findAllPostWithRelations = async () => {
+    return await this.find({relations: ['posts']});
+  }
+
   updateUser = async (id: string, userDto: UserDto) => {
     return this.save({ ...userDto, id: Number(id) });
   }

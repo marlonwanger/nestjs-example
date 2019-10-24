@@ -19,8 +19,18 @@ export class UserController {
   ) {}
 
   @Get()
-  getDogs() {
+  getUser() {
     return this.userRepository.find();
+  }
+
+  @Get('address')
+  getUserAddress() {
+    return this.userRepository.findAllAddressWithRelations();
+  }
+
+  @Get('posts')
+  getUserPost() {
+    return this.userRepository.findAllPostWithRelations();
   }
 
   @Post()
