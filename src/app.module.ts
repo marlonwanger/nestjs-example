@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { AddressModule } from './address/address.module';
 import { PostModule } from './post/post.module';
 import { CategoryModule } from './category/category.module';
+import { PostCategoriesModule } from './post-categories/post-categories.module';
 import * as ormconfig from './ormconfig';
 
 export function DatabaseOrmModule(): DynamicModule {
@@ -24,6 +25,7 @@ export function DatabaseOrmModule(): DynamicModule {
     UserModule,
     PostModule,
     CategoryModule,
+    PostCategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

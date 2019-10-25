@@ -6,9 +6,11 @@ import {
   PrimaryGeneratedColumn,
   ManyToMany,
   JoinTable,
+  OneToMany,
 } from 'typeorm';
 import { User } from '../user/user.entity';
 import { Category } from '../category/category.entity';
+import { PostCategories } from '../post-categories/post-categories.entity';
 
 @Entity()
 export class Post {
@@ -24,7 +26,10 @@ export class Post {
   @ManyToOne(type => User, (author: User) => author.posts)
   public author: User;
 
-  @ManyToMany(() => Category)
-  @JoinTable()
-  categories: Category[];
+  @OneToMany(type => PostCategories, postCategories => postCategories.post)
+  public categoryConnection: PostCategories[];
+
+  // @ManyToMany(() => Category)
+  // @JoinTable()
+  // categories: Category[];
 }

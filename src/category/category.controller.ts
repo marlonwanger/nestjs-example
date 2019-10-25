@@ -24,8 +24,8 @@ export class CategoryController {
   }
 
   @Post()
-  create(@Body() addressDto: CategoryDto) {
-    return this.categoryRepository.createCategory(addressDto);
+  create(@Body() categoryDto: CategoryDto) {
+    return this.categoryRepository.createCategory(categoryDto);
   }
 
   @Get(':id')
@@ -34,8 +34,8 @@ export class CategoryController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() addressDto: CategoryDto) {
-    return this.categoryRepository.updateCategory(id, addressDto);
+  update(@Param('id') id: string, @Body() categoryDto: CategoryDto) {
+    return this.categoryRepository.updateCategory(id, categoryDto);
   }
 
   @Delete(':id')
